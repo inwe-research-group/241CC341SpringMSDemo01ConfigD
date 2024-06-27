@@ -38,7 +38,7 @@ public class CourseServiceImpl implements ICourseService {
     public StudentByCouseResponse findStudentsByCourseId(Long courseId) {
 
         // Consultar si existe el curso
-        Course course = courseRepository.findById(courseId).orElseThrow();
+        Course course = courseRepository.findById(courseId).orElse(new Course());
 
         // Obtener los estudiantes
         List<StudentDTO> studentDTOList = studentClient.findAllStudentByCourse(course.getId());
